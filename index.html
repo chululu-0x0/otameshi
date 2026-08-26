@@ -3,63 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gradient / Marble Animation Test</title>
-  <link rel="stylesheet" href="style.css">
+  <title>8px 枠画像 テーブル比較</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   <main class="page">
     <header class="page-header">
-      <p class="eyebrow">CSS + JavaScript Animation Test</p>
-      <h1>丸い図形のアニメーション比較</h1>
+      <p class="eyebrow">TABLE FRAME TEST</p>
+      <h1>8px画像 × テーブル枠 比較</h1>
       <p class="description">
-        左はCSSだけで動くグラデーション、右は複数レイヤーとJavaScriptを使ったマーブル模様です。
+        元画像はすべて8pxのまま使用し、CSSで 8 / 16 / 32 / 64px に整数倍表示しています。
       </p>
     </header>
 
-    <section class="compare-grid" aria-label="アニメーション比較">
-      <article class="demo-card">
-        <div class="orb-shell">
-          <div class="orb gradient-orb" aria-label="動くグラデーションの丸">
-            <div class="orb-highlight"></div>
-          </div>
-        </div>
+    <section class="frame-section">
+      <div class="section-heading">
+        <h2>通常枠</h2>
+        <p>minidit-8-1-1.png ～ minidit-8-1-9.png を使用</p>
+      </div>
 
-        <div class="card-text">
-          <span class="number">01</span>
-          <div>
-            <h2>Moving Gradient</h2>
-            <p>複数の radial-gradient の位置をCSSアニメーションでずらしています。</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="demo-card">
-        <div class="orb-shell">
-          <div class="orb marble-orb" id="marbleOrb" aria-label="動くマーブル模様の丸">
-            <div class="marble-layer marble-layer-a"></div>
-            <div class="marble-layer marble-layer-b"></div>
-            <div class="marble-layer marble-layer-c"></div>
-            <div class="marble-layer marble-layer-d"></div>
-            <div class="orb-highlight"></div>
-          </div>
-        </div>
-
-        <div class="card-text">
-          <span class="number">02</span>
-          <div>
-            <h2>Moving Marble</h2>
-            <p>半透明の色レイヤーを重ね、JSで移動先・回転・拡大率を不規則に変えています。</p>
-          </div>
-        </div>
-      </article>
+      <div class="comparison-grid" id="normalFrames"></div>
     </section>
 
-    <section class="controls">
-      <button type="button" id="toggleAnimation">一時停止</button>
-      <button type="button" id="shuffleMarble">マーブルを揺らす</button>
+    <section class="frame-section">
+      <div class="section-heading">
+        <h2>角画像差し替え枠</h2>
+        <p>
+          1・3・7・9のみ minidot-8-2kado-*.png に差し替え、
+          辺と中央は通常画像を使用
+        </p>
+      </div>
+
+      <div class="comparison-grid" id="cornerFrames"></div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>

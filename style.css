@@ -1,16 +1,5 @@
-/* ==============================
-   Base
-============================== */
 * {
   box-sizing: border-box;
-}
-
-:root {
-  --bg: #f7f3f7;
-  --card: rgba(255, 255, 255, 0.84);
-  --text: #403a46;
-  --muted: #817887;
-  --line: rgba(80, 68, 88, 0.10);
 }
 
 html,
@@ -24,372 +13,210 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
-    "Hiragino Sans",
+    "Hiragino Kaku Gothic ProN",
     "Yu Gothic",
+    Meiryo,
     sans-serif;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 15% 10%, rgba(247, 202, 224, 0.30), transparent 34%),
-    radial-gradient(circle at 85% 90%, rgba(184, 225, 238, 0.30), transparent 36%),
-    var(--bg);
+  background: #f3f1ec;
+  color: #282522;
 }
 
-button {
-  font: inherit;
+img {
+  display: block;
 }
 
-
-/* ==============================
-   Layout
-============================== */
 .page {
-  width: min(100% - 32px, 980px);
+  width: min(1200px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 56px 0 64px;
+  padding: 48px 0 80px;
 }
 
 .page-header {
-  max-width: 720px;
-  margin-bottom: 34px;
+  margin-bottom: 48px;
 }
 
 .eyebrow {
   margin: 0 0 8px;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #9c8299;
+  letter-spacing: 0.18em;
+  color: #7f786f;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
 }
 
 h1 {
-  margin: 0;
-  font-size: clamp(28px, 5vw, 44px);
-  line-height: 1.15;
+  margin-bottom: 12px;
+  font-size: clamp(28px, 5vw, 46px);
+  line-height: 1.2;
 }
 
 .description {
-  margin: 14px 0 0;
-  color: var(--muted);
+  margin-bottom: 0;
   line-height: 1.8;
+  color: #625c55;
 }
 
-.compare-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
+.frame-section + .frame-section {
+  margin-top: 56px;
 }
 
-.demo-card {
-  min-width: 0;
-  padding: clamp(20px, 4vw, 32px);
-  border: 1px solid var(--line);
-  border-radius: 28px;
-  background: var(--card);
-  backdrop-filter: blur(10px);
+.section-heading {
+  margin-bottom: 20px;
 }
 
-.orb-shell {
-  display: grid;
-  place-items: center;
-  padding: 12px 0 30px;
+.section-heading h2 {
+  margin-bottom: 6px;
+  font-size: 22px;
 }
 
-.orb {
-  position: relative;
-  width: min(100%, 290px);
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 50%;
-  isolation: isolate;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.72),
-    inset -18px -18px 36px rgba(66, 54, 86, 0.10),
-    0 20px 46px rgba(87, 69, 98, 0.13);
-}
-
-
-/* ==============================
-   01. Moving Gradient
-   CSS only
-============================== */
-.gradient-orb {
-  background:
-    radial-gradient(
-      circle at 18% 24%,
-      rgba(255, 255, 255, 0.96) 0 8%,
-      rgba(255, 226, 239, 0.92) 18%,
-      transparent 42%
-    ),
-    radial-gradient(
-      circle at 78% 28%,
-      rgba(120, 221, 229, 0.92) 0 12%,
-      rgba(142, 202, 241, 0.76) 26%,
-      transparent 48%
-    ),
-    radial-gradient(
-      circle at 38% 82%,
-      rgba(222, 154, 238, 0.88) 0 13%,
-      rgba(248, 170, 208, 0.72) 29%,
-      transparent 52%
-    ),
-    radial-gradient(
-      circle at 72% 72%,
-      rgba(255, 218, 153, 0.62) 0 8%,
-      transparent 38%
-    ),
-    #b9e2ec;
-
-  background-size:
-    145% 145%,
-    155% 155%,
-    165% 165%,
-    150% 150%;
-
-  animation: gradientFlow 9s ease-in-out infinite alternate;
-}
-
-@keyframes gradientFlow {
-  0% {
-    background-position:
-      0% 0%,
-      100% 10%,
-      10% 100%,
-      100% 100%;
-    filter: saturate(0.98) hue-rotate(0deg);
-  }
-
-  35% {
-    background-position:
-      48% 72%,
-      25% 35%,
-      90% 35%,
-      40% 70%;
-    filter: saturate(1.08) hue-rotate(5deg);
-  }
-
-  70% {
-    background-position:
-      90% 20%,
-      65% 90%,
-      20% 22%,
-      5% 55%;
-    filter: saturate(1.02) hue-rotate(-4deg);
-  }
-
-  100% {
-    background-position:
-      35% 90%,
-      5% 50%,
-      100% 5%,
-      70% 15%;
-    filter: saturate(1.10) hue-rotate(7deg);
-  }
-}
-
-
-/* ==============================
-   02. Moving Marble
-   Layered CSS + JavaScript
-============================== */
-.marble-orb {
-  background:
-    radial-gradient(circle at 45% 35%, #e7fbff 0 8%, transparent 42%),
-    linear-gradient(145deg, #8bd7de, #b9a8ea 52%, #f0b8cf);
-}
-
-.marble-layer {
-  position: absolute;
-  inset: -42%;
-  border-radius: 42% 58% 63% 37% / 47% 41% 59% 53%;
-  mix-blend-mode: soft-light;
-  will-change: transform;
-  transition:
-    transform var(--move-time, 4.5s) cubic-bezier(0.45, 0.05, 0.28, 1),
-    border-radius 4s ease-in-out;
-}
-
-.marble-layer-a {
-  background:
-    radial-gradient(ellipse at 35% 48%, rgba(255, 158, 205, 0.94) 0 12%, transparent 38%),
-    radial-gradient(ellipse at 70% 28%, rgba(255, 235, 246, 0.72) 0 9%, transparent 34%);
-  filter: blur(7px);
-  opacity: 0.95;
-}
-
-.marble-layer-b {
-  inset: -52%;
-  background:
-    conic-gradient(
-      from 30deg at 50% 50%,
-      transparent 0 12%,
-      rgba(103, 221, 221, 0.95) 18%,
-      transparent 31%,
-      rgba(121, 159, 235, 0.75) 43%,
-      transparent 57%,
-      rgba(239, 157, 221, 0.78) 72%,
-      transparent 87%
-    );
-  filter: blur(11px);
-  opacity: 0.82;
-}
-
-.marble-layer-c {
-  inset: -35%;
-  background:
-    repeating-radial-gradient(
-      ellipse at 60% 46%,
-      rgba(255, 255, 255, 0.54) 0 8%,
-      rgba(213, 172, 238, 0.34) 10% 15%,
-      transparent 20% 30%
-    );
-  filter: blur(6px);
-  opacity: 0.72;
-  mix-blend-mode: overlay;
-}
-
-.marble-layer-d {
-  inset: -60%;
-  background:
-    conic-gradient(
-      from 180deg,
-      rgba(255, 185, 218, 0.35),
-      rgba(112, 221, 222, 0.55),
-      rgba(191, 161, 238, 0.46),
-      rgba(255, 230, 239, 0.44),
-      rgba(255, 185, 218, 0.35)
-    );
-  filter: blur(18px);
-  opacity: 0.64;
-}
-
-
-/* Glass-like highlight shared by both */
-.orb-highlight {
-  position: absolute;
-  z-index: 5;
-  inset: 0;
-  pointer-events: none;
-  border-radius: inherit;
-  background:
-    radial-gradient(
-      ellipse at 30% 18%,
-      rgba(255, 255, 255, 0.82) 0 4%,
-      rgba(255, 255, 255, 0.25) 13%,
-      transparent 30%
-    ),
-    linear-gradient(
-      125deg,
-      rgba(255, 255, 255, 0.18),
-      transparent 35% 70%,
-      rgba(255, 255, 255, 0.08)
-    );
-}
-
-
-/* ==============================
-   Labels / Controls
-============================== */
-.card-text {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-}
-
-.number {
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: rgba(111, 91, 119, 0.08);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
-
-.card-text h2 {
-  margin: 0 0 6px;
-  font-size: 17px;
-}
-
-.card-text p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
+.section-heading p {
+  margin-bottom: 0;
+  font-size: 14px;
   line-height: 1.7;
+  color: #746d64;
 }
 
-.controls {
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.frame-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #d8d2ca;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(60, 50, 40, 0.06);
+}
+
+.frame-card__label {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 12px;
-  margin-top: 26px;
+  margin-bottom: 16px;
 }
 
-.controls button {
-  min-height: 44px;
-  padding: 10px 18px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.86);
-  cursor: pointer;
-  transition:
-    transform 160ms ease,
-    background-color 160ms ease;
+.frame-card__label strong {
+  font-size: 18px;
 }
 
-.controls button:active {
-  transform: scale(0.96);
+.frame-card__label span {
+  font-size: 12px;
+  color: #8c847a;
 }
 
-.animations-paused *,
-.animations-paused *::before,
-.animations-paused *::after {
-  animation-play-state: paused !important;
+.frame-preview {
+  overflow: auto;
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  padding: 28px;
+  border-radius: 12px;
+  background:
+    linear-gradient(45deg, #ece8e2 25%, transparent 25%),
+    linear-gradient(-45deg, #ece8e2 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ece8e2 75%),
+    linear-gradient(-45deg, transparent 75%, #ece8e2 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
 }
 
+/*
+  テーブル全体は 3×3 マス。
+  --tile-size が「1マスの表示サイズ」です。
 
-/* ==============================
-   Responsive
-============================== */
-@media (max-width: 700px) {
+  8px  → テーブル全体 24px × 24px
+  16px → テーブル全体 48px × 48px
+  32px → テーブル全体 96px × 96px
+  64px → テーブル全体 192px × 192px
+*/
+.pixel-frame {
+  --tile-size: 8px;
+
+  width: calc(var(--tile-size) * 3);
+  height: calc(var(--tile-size) * 3);
+
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.pixel-frame td {
+  width: var(--tile-size);
+  min-width: var(--tile-size);
+  max-width: var(--tile-size);
+  height: var(--tile-size);
+  min-height: var(--tile-size);
+  max-height: var(--tile-size);
+  padding: 0;
+  border: 0;
+  line-height: 0;
+}
+
+.pixel-frame img {
+  width: var(--tile-size);
+  height: var(--tile-size);
+
+  /*
+    8px素材を整数倍に拡大してもぼかさないための指定。
+  */
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.size-8 {
+  --tile-size: 8px;
+}
+
+.size-16 {
+  --tile-size: 16px;
+}
+
+.size-32 {
+  --tile-size: 32px;
+}
+
+.size-64 {
+  --tile-size: 64px;
+}
+
+.frame-card__info {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #746d64;
+}
+
+@media (max-width: 900px) {
+  .comparison-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
   .page {
-    width: min(100% - 24px, 520px);
-    padding-top: 34px;
+    width: min(100% - 24px, 1200px);
+    padding-top: 28px;
   }
 
-  .compare-grid {
+  .comparison-grid {
     grid-template-columns: 1fr;
   }
 
-  .demo-card {
-    border-radius: 24px;
-  }
-
-  .orb {
-    width: min(78vw, 280px);
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .controls button:hover {
-    background: #fff;
-    transform: translateY(-1px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .gradient-orb {
-    animation: none;
-  }
-
-  .marble-layer {
-    transition: none;
+  .frame-preview {
+    min-height: 220px;
   }
 }
