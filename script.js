@@ -9,7 +9,7 @@ const normalImages = {
   6: "./assets/frame/minidot-8-6.png",
   7: "./assets/frame/minidot-8-7.png",
   8: "./assets/frame/minidot-8-8.png",
-  9: "./assets/frame/minidiot-8-9.png",
+  9: "./assets/frame/minidot-8-9.png",
 };
 
 /*
