@@ -1,15 +1,15 @@
 const FRAME_SIZES = [8, 16, 32, 64];
 
 const normalImages = {
-  1: "./assets/frame/minidit-8-1-1.png",
-  2: "./assets/frame/minidit-8-1-2.png",
-  3: "./assets/frame/minidit-8-1-3.png",
-  4: "./assets/frame/minidit-8-1-4.png",
-  5: "./assets/frame/minidit-8-1-5.png",
-  6: "./assets/frame/minidit-8-1-6.png",
-  7: "./assets/frame/minidit-8-1-7.png",
-  8: "./assets/frame/minidit-8-1-8.png",
-  9: "./assets/frame/minidit-8-1-9.png",
+  1: "./assets/frame/minidit-8-1.png",
+  2: "./assets/frame/minidit-8-2.png",
+  3: "./assets/frame/minidit-8-3.png",
+  4: "./assets/frame/minidit-8-4.png",
+  5: "./assets/frame/minidit-8-5.png",
+  6: "./assets/frame/minidit-8-6.png",
+  7: "./assets/frame/minidit-8-7.png",
+  8: "./assets/frame/minidit-8-8.png",
+  9: "./assets/frame/minidit-8-9.png",
 };
 
 /*
