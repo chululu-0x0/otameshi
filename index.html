@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient / Marble Animation Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <p class="eyebrow">CSS + JavaScript Animation Test</p>
+      <h1>丸い図形のアニメーション比較</h1>
+      <p class="description">
+        左はCSSだけで動くグラデーション、右は複数レイヤーとJavaScriptを使ったマーブル模様です。
+      </p>
+    </header>
+
+    <section class="compare-grid" aria-label="アニメーション比較">
+      <article class="demo-card">
+        <div class="orb-shell">
+          <div class="orb gradient-orb" aria-label="動くグラデーションの丸">
+            <div class="orb-highlight"></div>
+          </div>
+        </div>
+
+        <div class="card-text">
+          <span class="number">01</span>
+          <div>
+            <h2>Moving Gradient</h2>
+            <p>複数の radial-gradient の位置をCSSアニメーションでずらしています。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="demo-card">
+        <div class="orb-shell">
+          <div class="orb marble-orb" id="marbleOrb" aria-label="動くマーブル模様の丸">
+            <div class="marble-layer marble-layer-a"></div>
+            <div class="marble-layer marble-layer-b"></div>
+            <div class="marble-layer marble-layer-c"></div>
+            <div class="marble-layer marble-layer-d"></div>
+            <div class="orb-highlight"></div>
+          </div>
+        </div>
+
+        <div class="card-text">
+          <span class="number">02</span>
+          <div>
+            <h2>Moving Marble</h2>
+            <p>半透明の色レイヤーを重ね、JSで移動先・回転・拡大率を不規則に変えています。</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="controls">
+      <button type="button" id="toggleAnimation">一時停止</button>
+      <button type="button" id="shuffleMarble">マーブルを揺らす</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
